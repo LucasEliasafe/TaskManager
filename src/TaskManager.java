@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class TaskManager {
     private ArrayList<Task> tasks = new ArrayList<>();
 
-    public void addTask(String name) {
-        tasks.add(new Task(name));
+    public void addTask(String name, String description, String priority) {
+        tasks.add(new Task(name, description, priority));
         System.out.println("Tarefa adicionada com sucesso!");
     }
 
@@ -14,10 +14,12 @@ public class TaskManager {
         } else {
             System.out.println("Tarefas cadastradas:");
             for (int i = 0; i < tasks.size(); i++) {
-                System.out.println((i + 1) + ". " + tasks.get(i));
+                System.out.println((i + 1) + ". " + tasks.get(i) + "\n");
             }
         }
     }
+
+
 
     public void marktaskCompleted(int index) {
         if (index < 0 || index >= tasks.size()) {
