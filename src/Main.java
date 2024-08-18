@@ -20,8 +20,29 @@ public class Main {
             switch (option) {
                 case 1:
                     System.out.println("Tarefa inserida com sucesso!");
-
+                    String name = scanner.nextLine();
+                    taskManager.addTask(name);
+                    break;
+                case 2:
+                    taskManager.listTasks();
+                    break;
+                case 3:
+                    System.out.println("Digite o número da tarefa a ser marcada como concluída: ");
+                    int completeIndex = scanner.nextInt() - 1;
+                    taskManager.marktaskCompleted(completeIndex);
+                    break;
+                case 4:
+                    System.out.println("Digite o número da tarefa a ser removida: ");
+                    int removeIndex = scanner.nextInt() - 1;
+                    taskManager.removeTask(removeIndex);
+                    break;
+                case 5:
+                    System.out.println("Saindo....");
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente novamente!");
             }
-        }
+        } while (option != 5);
+        scanner.close();
     }
 }
