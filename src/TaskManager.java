@@ -62,8 +62,15 @@ public class TaskManager {
             tasks.get(index).setDescription(newDescription);
             System.out.println("Nome da descrição editada com sucesso!");
         }
+    }
 
-
+    public void editTaskPriority(int index, String newPriority) {
+        if (index < 0 || index >= tasks.size()) {
+            System.out.println("Inválido!");
+        } else {
+            tasks.get(index).setPriority(newPriority);
+            System.out.println("Nome da prioridade editada com sucesso!");
+        }
     }
 }
 
