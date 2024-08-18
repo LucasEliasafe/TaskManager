@@ -54,5 +54,16 @@ public class TaskManager {
             System.out.println("Nome da tarefa editada com sucesso!");
         }
     }
+
+    public void editTaskDescription(int index, String newDescription) {
+        if (index < 0 || index >= tasks.size()) {
+            System.out.println("Inválido!");
+        } else {
+            tasks.get(index).setDescription(newDescription);
+            System.out.println("Nome da descrição editada com sucesso!");
+        }
+
+
+    }
 }
 
