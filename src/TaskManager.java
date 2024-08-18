@@ -45,5 +45,14 @@ public class TaskManager {
             System.out.println("Tarefa removida com sucesso!");
         }
     }
+
+    public void editTaskName(int index, String newName) {
+        if (index < 0 || index >= tasks.size()) {
+            System.out.println("Inválido!");
+        } else {
+            tasks.get(index).setName(newName);
+            System.out.println("Nome da tarefa editada com sucesso!");
+        }
+    }
 }
 
