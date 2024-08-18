@@ -14,11 +14,20 @@ public class TaskManager {
         } else {
             System.out.println("Tarefas cadastradas:");
             for (int i = 0; i < tasks.size(); i++) {
-                System.out.println((i + 1) + ". " + tasks.get().get(i));
+                System.out.println((i + 1) + ". " + tasks.get(i));
             }
         }
     }
 
+    public void marktaskCompleted(int index) {
+        if (index < 0 || index >= tasks.size()) {
+            System.out.println("Inválido");
+        } else {
+            tasks.get(index).markCompleted();
+            System.out.println("Tarefa finalizada com sucesso!");
+        }
+    }
 
+    public void re
 }
 
