@@ -23,15 +23,19 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    System.out.println("Tarefa inserida com sucesso!");
+                    System.out.print("Digite o nome da tarefa: ");
                     String name = scanner.nextLine();
-                    taskManager.addTask(name);
+                    System.out.print("Digite a descrição da tarefa: ");
+                    String description = scanner.nextLine();
+                    System.out.print("Digite a prioridade da tarefa: ");
+                    String priority = scanner.nextLine();
+                    taskManager.addTask(name, description, priority);
                     break;
                 case 2:
                     taskManager.listTasks();
                     break;
                 case 3:
-                    System.out.println("Digite o número da tarefa a ser marcada como concluída: ");
+                    System.out.print("Digite a prioridade a filtrar");
                     int completeIndex = scanner.nextInt() - 1;
                     taskManager.marktaskCompleted(completeIndex);
                     break;
