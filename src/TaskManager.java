@@ -19,7 +19,14 @@ public class TaskManager {
         }
     }
 
-
+    public void listTaskByPriority(String priority) {
+        System.out.println("Tarefas com prioridade " + priority + ":");
+        for (Task task : tasks) {
+            if (task.getPriority().equals(priority)) {
+                System.out.println(task + "\n");
+            }
+        }
+    }
 
     public void marktaskCompleted(int index) {
         if (index < 0 || index >= tasks.size()) {
