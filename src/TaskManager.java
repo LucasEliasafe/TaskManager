@@ -28,6 +28,13 @@ public class TaskManager {
         }
     }
 
-    public void re
+    public void removeTask(int index) {
+        if (index < 0 || index >= tasks.size()) {
+            System.out.println("Inválida");
+        } else {
+            tasks.remove(index);
+            System.out.println("Tarefa removida com sucesso!");
+        }
+    }
 }
 
