@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.*;
 
 public class TaskManager {
     private ArrayList<Task> tasks = new ArrayList<>();
@@ -70,6 +71,15 @@ public class TaskManager {
         } else {
             tasks.get(index).setPriority(newPriority);
             System.out.println("Nome da prioridade editada com sucesso!");
+        }
+    }
+
+    public void saveTasksToFile(String filename) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(tasks);
+            System.out.println("Tarefas salvo com sucesso!");
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar tarefas: " + e.getMessage());
         }
     }
 }
