@@ -82,5 +82,15 @@ public class TaskManager {
             System.out.println("Erro ao salvar tarefas: " + e.getMessage());
         }
     }
+
+    @SuppressWarnings("unchecked")
+    public void loadTasksFromFile(String filename) {
+        try (ObjectInputStream  ois = new ObjectInputStream(new FileInputStream(filename))) {
+            tasks = (ArrayList<Task>) ois.readObject();
+            System.out.println("Tarefas carregadas com sucesso!");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Erro ao carregar tarefas: " + e.getMessage());
+        }
+    }
 }
 
