@@ -1,10 +1,13 @@
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         TaskManager taskManager = new TaskManager();
         int option;
+
+        taskManager.loadTasksFromFile("tasks.dat");
 
         do {
             System.out.println("\n--- Menu ---");
