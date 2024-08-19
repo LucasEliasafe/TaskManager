@@ -35,22 +35,51 @@ public class Main {
                     taskManager.listTasks();
                     break;
                 case 3:
-                    System.out.print("Digite a prioridade a filtrar");
+                    System.out.print("Digite a prioridade a filtrar (Alta, Média, Baixa): ");
+                    String filterPriority = scanner.nextLine();
+                    taskManager.listTaskByPriority(filterPriority);
+                    break;
+                case 4:
+                    System.out.print("Digite o número da tarefa a ser marcada como concluída: ");
                     int completeIndex = scanner.nextInt() - 1;
                     taskManager.marktaskCompleted(completeIndex);
                     break;
-                case 4:
-                    System.out.println("Digite o número da tarefa a ser removida: ");
+                case 5:
+                    System.out.print("Digite o número da tarefa a ser removida: ");
                     int removeIndex = scanner.nextInt() - 1;
                     taskManager.removeTask(removeIndex);
                     break;
-                case 5:
-                    System.out.println("Saindo....");
+                case 6:
+                    System.out.print("Digite o número da tarefa a ser editada: ");
+                    int editIndex = scanner.nextInt() - 1;
+                    scanner.nextLine();
+                    System.out.print("Digite o novo nome da tarefa: ");
+                    String newName = scanner.nextLine();
+                    taskManager.editTaskName(editIndex, newName);
+                    break;
+                case 7:
+                    System.out.print("Digite o número da tarefa a ser editada: ");
+                    int editDescIndex = scanner.nextInt() - 1;
+                    scanner.nextLine();
+                    System.out.print("Digite a nova descrição da tarefa: ");
+                    String newDescription = scanner.nextLine();
+                    taskManager.editTaskDescription(editDescIndex, newDescription);
+                    break;
+                case 8:
+                    System.out.print("Digite o nome da tarefa a ser editada: ");
+                    int editPriorityIndex = scanner.nextInt() - 1;
+                    scanner.nextLine();
+                    System.out.print("Digite a nova prioridade da tarefa (Alta, Médio, Baixa): ");
+                    String newPriority = scanner.nextLine();
+                    taskManager.editTaskPriority(editPriorityIndex, newPriority);
+                    break;
+                case 9:
+                    System.out.println("Saindo...");
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente!");
             }
-        } while (option != 5);
+        } while (option != 9);
         scanner.close();
     }
 }
