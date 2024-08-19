@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.io.*;
 
@@ -91,6 +92,11 @@ public class TaskManager {
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro ao carregar tarefas: " + e.getMessage());
         }
+    }
+
+    public void addRecurringTasks(String name, String description, String priority, String recurrencePattern, LocalDate nextDueDate) {
+        tasks.add(new RecurringTask(name, description, priority, recurrencePattern, nextDueDate));
+        System.out.println("Tarefa recorrente adicionada com sucesso!");
     }
 }
 
