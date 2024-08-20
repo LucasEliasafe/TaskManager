@@ -98,5 +98,15 @@ public class TaskManager {
         tasks.add(new RecurringTask(name, description, priority, recurrencePattern, nextDueDate));
         System.out.println("Tarefa recorrente adicionada com sucesso!");
     }
+
+    public void searchTasks(String keyword) {
+        System.out.println("Resultados da busca por: " + keyword);
+        for (Task task : tasks) {
+            if (task.getName().toLowerCase().contains(keyword.toLowerCase()) ||
+                    task.getDescription().toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(task + "\n");
+            }
+        }
+    }
 }
 
