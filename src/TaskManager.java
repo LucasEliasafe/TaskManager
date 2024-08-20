@@ -94,10 +94,11 @@ public class TaskManager {
         }
     }
 
-    public void addRecurringTasks(String name, String description, String priority, String recurrencePattern, LocalDate nextDueDate) {
+    public void addRecurringTask(String name, String description, String priority, String recurrencePattern, LocalDate nextDueDate) {
         tasks.add(new RecurringTask(name, description, priority, recurrencePattern, nextDueDate));
         System.out.println("Tarefa recorrente adicionada com sucesso!");
     }
+
 
     public void searchTasks(String keyword) {
         System.out.println("Resultados da busca por: " + keyword);
