@@ -1,3 +1,4 @@
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.time.LocalDate;
 
@@ -19,7 +20,11 @@ public class Main {
             System.out.println("6. Editar nome da tarefa");
             System.out.println("7. Editar descrição da tarefa");
             System.out.println("8. Editar prioridade da tarefa");
-            System.out.println("9. Sair");
+            System.out.println("9. Salvar tarefas");
+            System.out.println("10. Carregar tarefas");
+            System.out.println("11. Buscar tarefas");
+            System.out.println("12. Adicionar tarefa recorrente");
+            System.out.println("13. Sair");
             System.out.println("Escolha uma opção: ");
             option = scanner.nextInt();
             scanner.nextLine();
@@ -77,12 +82,38 @@ public class Main {
                     taskManager.editTaskPriority(editPriorityIndex, newPriority);
                     break;
                 case 9:
-                    System.out.println("Saindo...");
+                    taskManager.saveTasksToFile("tasks.dat");
+                    break;
+                case 10:
+                    taskManager.loadTasksFromFile("tasks.dat");
+                    break;
+                case 11:
+                    System.out.print("Digite a palavra-chave para buscar: ");
+                    String keyword = scanner.nextLine();
+                    taskManager.searchTasks(keyword);
+                    break;
+                case 12:
+                    System.out.print("Digite o nome da tarefa recorrente: ");
+                    String nome = scanner.nextLine();
+                    System.out.print("Digite a descrição da tarefa: ");
+                    String descrição = scanner.nextLine();
+                    System.out.print("Digite a prioridade da tarefa (Alta, Média, Baixa): ");
+                    String prioridade = scanner.nextLine();
+                    System.out.print("Digite o padrão de recorrência (Diária, Semanal, Mensal): ");
+                    String recurrencePattern = scanner.nextLine();
+
+                    try {
+                        System.out.print("Digite a data da próxima ocorrência (YYYY-MM-DD): ");
+                        LocalDate nextDueDate = LocalDate.parse(scanner.nextLine());
+                        taskManager.addRecurringTask(nome, descrição, prioridade, recurrencePattern, nextDueDate);
+                    } catch (DateTimeParseException e) {
+                        System.out.println("Formato de data inválido! Por favor, use o formato YYYY-MM-DD.");
+                    }
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente!");
             }
-        } while (option != 9);
+        } while (option != 13);
         scanner.close();
     }
 }

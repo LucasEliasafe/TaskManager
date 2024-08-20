@@ -6,8 +6,8 @@ public class RecurringTask extends Task {
     private LocalDate nextDueDate;
 
 
-    public RecurringTask(String name, String description, String priority, String recurrencePattern, LocalDate nextDueDate) {
-        super(name, description, priority);
+    public RecurringTask(String nome, String descrição, String prioridade, String recurrencePattern, LocalDate nextDueDate) {
+        super(nome, descrição, prioridade);
         this.recurrencePattern = recurrencePattern;
         this.nextDueDate = nextDueDate;
     }
@@ -36,6 +36,8 @@ public class RecurringTask extends Task {
 
     @Override
     public String toString() {
-        re
+        return super.toString() +
+                "\nRecorrência: " + recurrencePattern +
+                "\nPróxima Data: " + nextDueDate;
     }
 }
