@@ -5,14 +5,11 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class TaskManagerGUI extends JFrame {
 
     public TaskManagerGUI() {
         setTitle("Gerenciador de Tarefas");
-        setSize(600, 400);
+        setSize(800, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(5, 3));
 
